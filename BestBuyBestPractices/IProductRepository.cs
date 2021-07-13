@@ -11,5 +11,7 @@ namespace BestBuyBestPractices
         void CreateProduct(string name, double price, int categoryID);
 
         void UpdateProduct(string name, double price, int categoryID, string oldProd);
+
+        void DeleteProduct(int productID);
     }
 }

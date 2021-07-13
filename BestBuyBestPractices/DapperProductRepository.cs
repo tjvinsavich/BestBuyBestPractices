@@ -30,5 +30,16 @@ namespace BestBuyBestPractices
                 " name = @oldName;", new { prodName = newName, prodPrice = newPrice, prodCategoryID = newCategoryID, oldName = oldProd });
         }
 
+        public void DeleteProduct(int productID)
+        {
+            _connection.Execute("DELETE FROM products WHERE productID = @targetID;",
+                new { targetID = productID });
+
+            _connection.Execute("DELETE FROM sales WHERE productID = @targetID;",
+                new { targetID = productID });
+
+            _connection.Execute("DELETE FROM reviews WHERE productID = @targetID;",
+                new { targetID = productID });
+        }
     }
 }

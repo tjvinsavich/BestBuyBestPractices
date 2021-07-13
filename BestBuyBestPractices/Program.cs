@@ -39,34 +39,34 @@ namespace BestBuyBestPractices
 
             //PRODUCT SECTION
 
-            Console.WriteLine("Type a new Product name (STRING)");
-            var name = Console.ReadLine();
-            Console.WriteLine("Type a new Product price (DOUBLE)");
-            var price = double.Parse(Console.ReadLine());
-            Console.WriteLine("Type the correct CategoryID for the new Product (INT)");
-            var categoryID = int.Parse(Console.ReadLine());
+            //Console.WriteLine("Type a new Product name (STRING)");
+            //var name = Console.ReadLine();
+            //Console.WriteLine("Type a new Product price (DOUBLE)");
+            //var price = double.Parse(Console.ReadLine());
+            //Console.WriteLine("Type the correct CategoryID for the new Product (INT)");
+            //var categoryID = int.Parse(Console.ReadLine());
 
-            prodRepo.CreateProduct(name, price, categoryID);
+            //prodRepo.CreateProduct(name, price, categoryID);
 
             var products = prodRepo.GetAllProducts();
 
-            foreach (var prod in products)
-            {
-                Console.WriteLine(prod.Name);
-            }
+            //foreach (var prod in products)
+            //{
+            //    Console.WriteLine(prod.Name);
+            //}
 
-            Console.WriteLine("Would you like to update that new product?");
+            //Console.WriteLine("Would you like to update that new product?");
 
-            var temp = name;
+            //var temp = name;
 
-            Console.WriteLine("Type a new Product name (STRING)");
-            name = Console.ReadLine();
-            Console.WriteLine("Type a new Product price (DOUBLE)");
-            price = double.Parse(Console.ReadLine());
-            Console.WriteLine("Type the correct CategoryID for the new Product (INT)");
-            categoryID = int.Parse(Console.ReadLine());
+            //Console.WriteLine("Type a new Product name (STRING)");
+            //name = Console.ReadLine();
+            //Console.WriteLine("Type a new Product price (DOUBLE)");
+            //price = double.Parse(Console.ReadLine());
+            //Console.WriteLine("Type the correct CategoryID for the new Product (INT)");
+            //categoryID = int.Parse(Console.ReadLine());
 
-            prodRepo.UpdateProduct(name, price, categoryID, temp);
+            //prodRepo.UpdateProduct(name, price, categoryID, temp);
 
             products = prodRepo.GetAllProducts();
 
@@ -74,6 +74,23 @@ namespace BestBuyBestPractices
             {
                 Console.WriteLine(prod.Name);
             }
+
+            Console.WriteLine("Would you like to delete a product?");
+
+            Console.WriteLine("Type the product ID");
+
+            var prodID = int.Parse(Console.ReadLine());
+
+            prodRepo.DeleteProduct(prodID);
+
+            products = prodRepo.GetAllProducts();
+
+            foreach (var prod in products)
+            {
+                Console.WriteLine(prod.Name);
+            }
+
+            Console.WriteLine("DELETED!");
 
 
         }
